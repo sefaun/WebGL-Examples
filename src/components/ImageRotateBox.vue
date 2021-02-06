@@ -3,7 +3,7 @@
     <canvas id="game-surface" :width="width - 17" :height="height">
       Your browser does not support HTML5
     </canvas>
-    <img id="create-image" width="0" height="0" src="./world.png" />
+    <img id="create-image" width="0" height="0" src="./dunya.png" />
   </div>
 </template>
 
