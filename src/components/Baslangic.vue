@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <canvas id="webGL-canvas" width="800" height="600">
+  <div class="kutu">
+    <canvas id="webGL-canvas" width="500" height="500">
       Your browser does not support HTML5
     </canvas>
   </div>
@@ -41,14 +41,7 @@ export default {
         alert("Your browser does not support WebGL");
       }
 
-      /*gl.clearColor(0.75, 0.85, 0.8, 1.0);
-      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-      gl.enable(gl.DEPTH_TEST);
-      gl.enable(gl.CULL_FACE);
-      gl.frontFace(gl.CCW);
-      gl.cullFace(gl.BACK);*/
-
-      const vertex = [-1, -1, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5];
+      const vertex = [-0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5];
       const indices = [0, 1, 2, 0, 2, 3];
 
       //
@@ -102,11 +95,26 @@ export default {
       var position = gl.getAttribLocation(program, "position");
       gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
       gl.enableVertexAttribArray(position);
-      gl.useProgram(program)
+      gl.useProgram(program);
+
+      gl.clearColor(0.5, 0.5, 0.5, 1.0);
+      gl.clearDepth(1.0);
+      gl.enable(gl.DEPTH_TEST);
+      gl.depthFunc(gl.LEQUAL);
+      gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+      gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
+.kutu {
+  width: 100% !important;
+  height: 100vh !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 </style>
