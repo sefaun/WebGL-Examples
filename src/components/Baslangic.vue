@@ -41,12 +41,12 @@ export default {
         alert("Your browser does not support WebGL");
       }
 
-      gl.clearColor(0.75, 0.85, 0.8, 1.0);
+      /*gl.clearColor(0.75, 0.85, 0.8, 1.0);
       gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
       gl.enable(gl.DEPTH_TEST);
       gl.enable(gl.CULL_FACE);
       gl.frontFace(gl.CCW);
-      gl.cullFace(gl.BACK);
+      gl.cullFace(gl.BACK);*/
 
       const vertex = [-1, -1, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5];
       const indices = [0, 1, 2, 0, 2, 3];
